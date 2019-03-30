@@ -14,6 +14,7 @@ package ru.avalon.java.dev.j10.labs.shapes;
  */
 public interface Shape {
 
+    float pi = (float) 3.14159265358979;
     /*
      * TODO: Закончить определение интерфейса 'Shape'
      *
@@ -48,7 +49,9 @@ public interface Shape {
      *
      * @return угол поворота фигуры.
      */
-    int getRotation();
+    default int getRotation(){
+        return 0;  
+    }
 
     /*
      * TODO: изменить определение метотода 'getRotation()'
