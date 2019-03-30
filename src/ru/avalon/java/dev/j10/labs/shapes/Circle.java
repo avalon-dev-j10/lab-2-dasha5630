@@ -11,22 +11,28 @@ package ru.avalon.java.dev.j10.labs.shapes;
 public class Circle implements Ellipse{
     
     private float radius;
-    onePoint centerPoint;
+    OnePoint centerPoint;
     
     @Override
     public float getArea() {
         return Shape.pi*radius*radius;
     }
 
-    /*
-     * TODO: Реализовать класс 'Circle'
-     * 1. Используйте наследование.
-     * 2. Реализуйте все абстрактные методы.
-     */
-
     @Override
     public float getLength() {
         return 2*radius;
     }
 
+    public float getRadius() {
+        return radius;
+    }
+
+    public OnePoint getCenterPoint() {
+        return centerPoint;
+    }
+
+    public Circle(float radius, OnePoint centerPoint) {
+        this.radius = radius;
+        this.centerPoint = centerPoint;
+    }
 }

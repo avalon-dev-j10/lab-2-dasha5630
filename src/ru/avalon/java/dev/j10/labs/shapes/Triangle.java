@@ -16,20 +16,51 @@ package ru.avalon.java.dev.j10.labs.shapes;
  */
 public class Triangle implements Polygon{
 
+    private OnePoint point1;
+    private OnePoint point2;
+    private OnePoint point3;
+    private int rotate = 0;
+    
+    public Triangle(OnePoint point1, OnePoint point2, OnePoint point3) {
+        this.point1 = point1;
+        this.point2 = point2;
+        this.point3 = point3;
+    }
+        
     @Override
     public float getPerimeter() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return point1.distanceTo(point2) + point1.distanceTo(point3) + point2.distanceTo(point3);
     }
 
     @Override
     public float getArea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (float) (0.5*(point1.getX()-point3.getX())*(point2.getY() - point3.getY()) 
+                - (point2.getX()-point3.getX())*(point1.getY() - point3.getY()));  
     }
 
-    /*
-     * TODO: Реализовать класс 'Triangle'
-     * 1. Используйте наследование.
-     * 2. Реализуйте все абстрактные методы.
-     */
+        int getRotation(int rotation) {
+        if (rotation > 360) {
+            this.rotate = rotation % 360;
+        } else if (rotation < 0) {
+            this.rotate = 360 - rotation % 360;
+        } else {
+            this.rotate = rotation;
+        }
+        return this.rotate;
+    }
+        
+    public OnePoint getPoint1() {
+        return point1;
+    }
+
+    public OnePoint getPoint2() {
+        return point2;
+    }
+
+    public OnePoint getPoint3() {
+        return point3;
+    }
+
+
 
 }
